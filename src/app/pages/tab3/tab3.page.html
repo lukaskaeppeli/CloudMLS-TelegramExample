@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Settings
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Athena</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-button (click)="showCredentials()">
+        Show Credentials
+      </ion-button>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-button (click)="logout()">
+        Logout
+      </ion-button>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Telegram Login</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input #phone></ion-input>
+      </ion-item>
+
+
+      <ion-button (click)="requestAuthCode(phone.value)">
+        Request Auth Code
+      </ion-button>
+
+      <ion-item>
+        <ion-label position="floating">Auth Code</ion-label>
+        <ion-input #auth></ion-input>
+      </ion-item>
+      <ion-button (click)="sendAuth(phone.value,auth.value)">
+        Send Auth Code
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

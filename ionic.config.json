@@ -1,0 +1,7 @@
+{
+  "name": "encrypted_messenger",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

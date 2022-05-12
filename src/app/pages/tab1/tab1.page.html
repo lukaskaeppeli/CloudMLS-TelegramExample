@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Athena
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">
+                Athena
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-list>
+        <ion-item *ngFor="let dialog of dialogs" (click)="openChat(dialog)">
+            <ion-avatar slot="start">
+                <img [src]="dialog.peer.picture | async">
+
+            </ion-avatar>
+            <ion-label>
+                <h2>{{dialog.peer.name}}</h2>
+
+                <p>{{ (dialog.top_message | async)?.message }}</p>
+            </ion-label>
+
+            <ion-icon *ngIf="dialog.encrypted" slot="end" name="lock-closed" color="primary"></ion-icon>
+
+        </ion-item>
+    </ion-list>
+
+    <ion-item *ngIf="dialogs.length===0">
+        <ion-label>
+            Log in to Telegram to see chats
+        </ion-label>
+    </ion-item>
+
+</ion-content>
