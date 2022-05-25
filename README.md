@@ -3,7 +3,37 @@
 This is an example client showing the capabilities of the [CloudMLS](https://github.com/lukaskaeppeli/CloudMLS) library.
 The library can be installed via npm as well: `npm install cloudmls`. In order to use this client, one has to host a version of this [server](https://github.com/lukaskaeppeli/CloudMLS-KeyServer).
 
-## Installation (Docker follows, I promise...)
+
+## Getting the telegram api keys
+Visit the [Telegram](https://core.telegram.org/api/obtaining_api_id) website and follow the instructions to get the api_id and api_hash. Store those in the following file:
+
+telegramexample/src/app/misc/api-keys/api-keys.ts:
+```bash
+export const apiKeys = {
+    apiID: YOUR_API_ID, 	
+    apiHash: "YOUR_API_HASH"
+}
+```
+
+
+## Setup
+
+### Docker
+Use the "Remote - Containers" Extension from vscode.
+
+Then (Local):
+```bash
+$ ionic serve --port=8100
+```
+
+or (Android)
+
+```bash
+$ ionic cordova run android
+```
+
+
+### Without docker
 
 - Install nodejs (tested with v17.6.0), npm and git:
 
@@ -16,17 +46,6 @@ $ sudo apt install nodejs npm git
 
 ```bash
 $ git clone https://github.com/lukaskaeppeli/CloudMLS-TelegramExample.git
-```
-
-## Getting the telegram api keys
-Visit the [Telegram](https://core.telegram.org/api/obtaining_api_id) website and follow the instructions to get the api_id and api_hash. Store those in the following file:
-
-telegramexample/src/app/misc/api-keys/api-keys.ts:
-```bash
-export const apiKeys = {
-    apiID: YOUR_API_ID, 	
-    apiHash: "YOUR_API_HASH"
-}
 ```
 
 
@@ -81,7 +100,7 @@ $ sudo npm install -g native-run cordova
 
 - Finally, we can deploy the application on the phone, connect the Android phone to the computer and enable debugging. Then:
 ```bash
-$ ionic cordova serve android
+$ ionic cordova run android
 ```
 
 
